@@ -15,15 +15,15 @@ class NewVisitorTest(unittest.TestCase):
         # goes to check out its homepage
         self.browser.get('http://localhost:8000')
 
-        # She notices the page title and header mention aialytics
+        # She notices the page title mentions aialytics
         self.assertIn('aialytics', self.browser.title)
-        header_text = self.browser.find_element_by_tag_name('h1').text
-        self.assertIn('aialytics',header_text)
+        # header_text = self.browser.find_element_by_tag_name('h1').text
+        # self.assertIn('aialytics',header_text)
 
         # At the top left of the page is the aialytics logo
         image = self.browser.find_element_by_tag_name('img')
-        self.assertEqual(image.get_attribute('src'), 
-            '//www.aialytics.com/media/aialytics.jpg')
+        self.assertEqual(image.get_attribute('src'),
+            'http://localhost:8000/static/aialytics.jpg')
         # At the top right of the page there are icons to LinkedIn, Twitter,
         # Facebook and rss (compare mindtools)
 
