@@ -29,6 +29,23 @@ class NewVisitorTest(unittest.TestCase):
 
         # Below that we find a menu that will direct us to home, analytics,
         # ai tools, decision analysis and our partners
+        menu = self.browser.find_element_by_id('id_menu')
+        rows = table.find_element_by_tag_name('li')
+        self.assertTrue(
+            any(row.text == 'home' for row in rows)
+        )
+        self.assertTrue(
+            any(row.text == 'analytics' for row in rows)
+        )
+        self.assertTrue(
+            any(row.text == 'ai tools' for row in rows)
+        )
+        self.assertTrue(
+            any(row.text == 'decision analysis' for row in rows)
+        )
+        self.assertTrue(
+            any(row.text == 'home' for row in rows)
+        )
 
         # The home page shows us: ...
         # - A column for Analytics, AI tools and Decision Analysis
@@ -38,20 +55,20 @@ class NewVisitorTest(unittest.TestCase):
         #   integrated into your ai solutions (incl. apps)
         # - Support your decisions with advanced bayesian decision analysis
 
-        # The about us page shows us: ...
+        # Inside the home page there is a 'about us' section that shows us: ...
         # - A description of who we are, what we do and how to contact us
         # - The industries that we are able to support
 
-        # The blog page shows us: ...
+        # Inside the home page there is a 'partners' section that shows us: ...
+        # - A list of technology companies we work with in implementing
+        #   solutions for our clients
+
+        # The analytics page shows us: ...
         # - an example of an industry application
 
         # The ai tools page shows us: ...
         # - Links to various ai tools in the market to support analytics
         #   (e.g. datarobot)
-
-        # The our partners page shows us: ...
-        # - A list of technology companies we work with in implementing
-        #   solutions for our clients
 
         # At the bottom left of the page it mentions 'aialytics 2017.
         # All rights reserved.'
