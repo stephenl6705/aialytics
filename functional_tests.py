@@ -17,11 +17,18 @@ class NewVisitorTest(unittest.TestCase):
 
         # She notices the page title and header mention aialytics
         self.assertIn('aialytics', self.browser.title)
+        header_text = self.browser.find_element_by_tag_name('h1').text
+        self.assertIn('aialytics',header_text)
 
-        # At the top of the page is the aialytics logo
+        # At the top left of the page is the aialytics logo
+        image = self.browser.find_element_by_tag_name('img')
+        self.assertEqual(image.get_attribute('src'), 
+            '//www.aialytics.com/media/aialytics.jpg')
+        # At the top right of the page there are icons to LinkedIn, Twitter,
+        # Facebook and rss (compare mindtools)
 
-        # Below that we find a menu that will direct us to home, about us,
-        # blog, ai tools and our partners
+        # Below that we find a menu that will direct us to home, analytics,
+        # ai tools, decision analysis and our partners
 
         # The home page shows us: ...
         # - A column for Analytics, AI tools and Decision Analysis
@@ -46,10 +53,9 @@ class NewVisitorTest(unittest.TestCase):
         # - A list of technology companies we work with in implementing
         #   solutions for our clients
 
-        # At the bottom left of the page it mentions '2017 Copyright Aialytics'
+        # At the bottom left of the page it mentions 'aialytics 2017.
+        # All rights reserved.'
 
-        # At the bottom right of the page there are icons to LinkedIn, Twitter,
-        # Facebook and Vimeo
 
 if __name__ == '__main__':
     unittest.main(warnings='ignore')
