@@ -28,9 +28,9 @@ class NewVisitorTest(unittest.TestCase):
         # Facebook and rss (compare mindtools)
 
         # Below that we find a menu that will direct us to home, analytics,
-        # ai tools, decision analysis and our partners
+        # ai tools and decision analysis
         menu = self.browser.find_element_by_id('id_menu')
-        rows = table.find_element_by_tag_name('li')
+        rows = menu.find_elements_by_tag_name('li')
         self.assertTrue(
             any(row.text == 'home' for row in rows)
         )
@@ -42,9 +42,6 @@ class NewVisitorTest(unittest.TestCase):
         )
         self.assertTrue(
             any(row.text == 'decision analysis' for row in rows)
-        )
-        self.assertTrue(
-            any(row.text == 'home' for row in rows)
         )
 
         # The home page shows us: ...
