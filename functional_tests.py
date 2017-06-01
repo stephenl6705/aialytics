@@ -32,16 +32,19 @@ class NewVisitorTest(unittest.TestCase):
         menu = self.browser.find_element_by_id('id_menu')
         rows = menu.find_elements_by_tag_name('li')
         self.assertTrue(
-            any(row.text == 'home' for row in rows)
+            any(row.text == 'Home' for row in rows)
         )
         self.assertTrue(
-            any(row.text == 'analytics' for row in rows)
+            any(row.text == 'Analytics' for row in rows)
         )
         self.assertTrue(
-            any(row.text == 'ai tools' for row in rows)
+            any(row.text == 'AI Tools' for row in rows)
         )
         self.assertTrue(
-            any(row.text == 'decision analysis' for row in rows)
+            any(row.text == 'Decision Analysis' for row in rows)
+        )
+        self.assertTrue(
+            any(row.text == 'Contact' for row in rows)
         )
 
         # The home page shows us: ...
