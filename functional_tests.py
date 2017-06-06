@@ -28,7 +28,7 @@ class NewVisitorTest(unittest.TestCase):
         # Facebook and rss (compare mindtools)
 
         # Below that we find a menu that will direct us to home, analytics,
-        # ai tools and decision analysis
+        # ai tools, decision analysis and about us
         menu = self.browser.find_element_by_id('id_menu')
         rows = menu.find_elements_by_tag_name('li')
         self.assertTrue(
@@ -44,22 +44,26 @@ class NewVisitorTest(unittest.TestCase):
             any(row.text == 'Decision Analysis' for row in rows)
         )
         self.assertTrue(
-            any(row.text == 'Contact' for row in rows)
+            any(row.text == 'About Us' for row in rows)
         )
 
         # The home page shows us: ...
-        # - A column for Analytics, AI tools and Decision Analysis
-        # - Get insight from your data using advanced data analytics and ai
-        #   techniques
-        # - Development of algorithms and data analytics solutions that can be
-        #   integrated into your ai solutions (incl. apps)
-        # - Support your decisions with advanced bayesian decision analysis
+        # - A row for Analytics, AI tools and Decision Analysis
+        page = self.browser.find_element_by_id('id_page')
+        rows = page.find_elements_by_tag_name('a')
+        self.assertTrue(
+            any(row.text == 'Analytics' for row in rows)
+        )
+        self.assertTrue(
+            any(row.text == 'AI Tools' for row in rows)
+        )
+        self.assertTrue(
+            any(row.text == 'Decision Analysis' for row in rows)
+        )
 
-        # Inside the home page there is a 'about us' section that shows us: ...
+        # The 'about us' section shows us: ...
         # - A description of who we are, what we do and how to contact us
         # - The industries that we are able to support
-
-        # Inside the home page there is a 'partners' section that shows us: ...
         # - A list of technology companies we work with in implementing
         #   solutions for our clients
 
@@ -70,6 +74,10 @@ class NewVisitorTest(unittest.TestCase):
         # - Links to various ai tools in the market to support analytics
         #   (e.g. datarobot)
 
+        # The decision analysis page shows us: ...
+        # - How are decisions made and how can we support this with bayesian
+        #   decision analysis techniques
+        
         # At the bottom left of the page it mentions 'aialytics 2017.
         # All rights reserved.'
 
