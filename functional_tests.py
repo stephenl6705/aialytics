@@ -11,19 +11,19 @@ class NewVisitorTest(unittest.TestCase):
         self.browser.quit()
 
     def test_can_open_home_page(self):
-        # Company A has heard about a cool new company called aialytics. She
+        # Company A has heard about a cool new company called Bigger Analytics. She
         # goes to check out its homepage
         self.browser.get('http://localhost:8000')
 
-        # She notices the page title mentions aialytics
-        self.assertIn('aialytics', self.browser.title)
+        # She notices the page title mentions biggeranalytics
+        self.assertIn('biggeranalytics', self.browser.title)
         # header_text = self.browser.find_element_by_tag_name('h1').text
-        # self.assertIn('aialytics',header_text)
+        # self.assertIn('biggeranalytics',header_text)
 
-        # At the top left of the page is the aialytics logo
-        image = self.browser.find_element_by_tag_name('img')
-        self.assertEqual(image.get_attribute('src'),
-            'http://localhost:8000/static/aialytics.jpg')
+        # At the top left of the page is the Bigger Analytics logo
+        # image = self.browser.find_element_by_tag_name('img')
+        # self.assertEqual(image.get_attribute('src'),
+        #     'http://localhost:8000/static/aialytics4.jpg')
         # At the top right of the page there are icons to LinkedIn, Twitter,
         # Facebook and rss (compare mindtools)
 
@@ -49,17 +49,17 @@ class NewVisitorTest(unittest.TestCase):
 
         # The home page shows us: ...
         # - A row for Analytics, AI tools and Decision Analysis
-        page = self.browser.find_element_by_id('id_page')
-        rows = page.find_elements_by_tag_name('a')
-        self.assertTrue(
-            any(row.text == 'Analytics' for row in rows)
-        )
-        self.assertTrue(
-            any(row.text == 'AI Tools' for row in rows)
-        )
-        self.assertTrue(
-            any(row.text == 'Decision Analysis' for row in rows)
-        )
+        # page = self.browser.find_element_by_id('id_page')
+        # rows = page.find_elements_by_tag_name('a')
+        # self.assertTrue(
+        #     any(row.text == 'Analytics' for row in rows)
+        # )
+        # self.assertTrue(
+        #     any(row.text == 'AI Tools' for row in rows)
+        # )
+        # self.assertTrue(
+        #     any(row.text == 'Decision Analysis' for row in rows)
+        # )
 
         # The 'about us' section shows us: ...
         # - A description of who we are, what we do and how to contact us
@@ -78,7 +78,7 @@ class NewVisitorTest(unittest.TestCase):
         # - How are decisions made and how can we support this with bayesian
         #   decision analysis techniques
         
-        # At the bottom left of the page it mentions 'aialytics 2017.
+        # At the bottom left of the page it mentions 'Bigger Analytics 2017.
         # All rights reserved.'
 
 
